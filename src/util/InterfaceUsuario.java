@@ -36,4 +36,18 @@ public class InterfaceUsuario {
         } while (taxaJurosAnual <= 0 || taxaJurosAnual >1000);
         return taxaJurosAnual;
     }
+
+    public static int escolherTipoImovel() {
+        Scanner scanner = new Scanner(System.in);
+        int escolha;
+        do {
+            System.out.println("Escolha o tipo de imóvel:");
+            System.out.println("1 - Casa");
+            System.out.println("2 - Apartamento");
+            System.out.println("3 - Terreno");
+            System.out.print("Digite o número correspondente ao tipo de imóvel desejado: ");
+            escolha = scanner.nextInt();
+        } while (escolha < 1 || escolha > 3);
+        return escolha;
+    }
 }
