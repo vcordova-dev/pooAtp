@@ -31,7 +31,7 @@ public class Main {
             return; // Termina o programa em caso de erro
         }
 
-// Instancia o tipo de imóvel escolhido
+        // Instancia o tipo de imóvel escolhido
         Financiamento financiamento;
 
         try {
@@ -67,6 +67,8 @@ public class Main {
         Terreno terreno1 = new Terreno(500000, 10, 10);
         financiamentos.add(terreno1);
 
+
+
         // Calcule o valor total de todos os imóveis e financiamentos.
         double totalImoveis = 0;
         double totalFinanciamentos = 0;
@@ -76,12 +78,22 @@ public class Main {
             totalImoveis += fin.getValorImovel();
             totalFinanciamentos += fin.calcularTotalPagamento();
         }
+
+
         // Percorre a lista de financiamentos e imprime o atributo de cada objeto dentro da lista
         System.out.println("Resumo dos Financiamentos:");
         for (int i = 0; i < financiamentos.size(); i++) {
             System.out.println("Financiamento " + (i + 1) + " - Valor do Imóvel: R$" + String.format("%.2f", financiamentos.get(i).getValorImovel()) +
                     "\nParcelas Mensais de: R$:" + String.format("%.2f", financiamentos.get(i).calcularPagamentoMensal()) + "\nValor do Financiamento: R$" + String.format("%.2f", financiamentos.get(i).calcularTotalPagamento()));
         }
+
+        for (int i = 0; i < financiamentos.size(); i++) {
+            System.out.println("Financiamento " + (i + 1) + " - Tipo: " + InterfaceUsuario.getTipoFinanciamento(financiamentos.get(i)) +
+                    "\nValor do Imóvel: R$" + String.format("%.2f", financiamentos.get(i).getValorImovel()) +
+                    "\nParcelas Mensais de: R$:" + String.format("%.2f", financiamentos.get(i).calcularPagamentoMensal()) +
+                    "\nValor do Financiamento: R$" + String.format("%.2f", financiamentos.get(i).calcularTotalPagamento()));
+        }
+
         //Soma de todos os imóveis e financiamentos.
         System.out.println("Total de todos os imóveis: R$" + String.format("%.2f", totalImoveis));
         System.out.println("Total de todos os financiamentos: R$" + String.format("%.2f", totalFinanciamentos));
