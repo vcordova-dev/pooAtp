@@ -14,7 +14,7 @@ public class Main {
         // Array list para armazenamento dos objetos tipo Financiamento.
         ArrayList<Financiamento> financiamentos = new ArrayList<>();
 
-        // Chama o método para escolher o tipo de imóvel
+        // Variável que armazena o retorno do método para obter o tipo do Financiamento.
         int escolhaTipoImovel = InterfaceUsuario.escolherTipoImovel();
 
         // Chama os métodos de entrada de dados específicos para o tipo de imóvel escolhido
@@ -37,13 +37,13 @@ public class Main {
         try {
             switch (escolhaTipoImovel) {
                 case 1:
-                    financiamento = new Casa(valorImovel, prazoFinanciamento, taxaJurosanual);
+                    financiamento = new Casa(valorImovel, prazoFinanciamento, taxaJurosanual,30,30);
                     break;
                 case 2:
-                    financiamento = new Apartamento(valorImovel, prazoFinanciamento, taxaJurosanual);
+                    financiamento = new Apartamento(valorImovel, prazoFinanciamento, taxaJurosanual,2,20);
                     break;
                 case 3:
-                    financiamento = new Terreno(valorImovel, prazoFinanciamento, taxaJurosanual);
+                    financiamento = new Terreno(valorImovel, prazoFinanciamento, taxaJurosanual,"Comercial");
                     break;
                 default:
                     throw new IllegalArgumentException("Opção de imóvel inválida");
@@ -58,13 +58,13 @@ public class Main {
         financiamentos.add(financiamento);
 
         // Instanciação hard code de outras classes
-        Casa casa2 = new Casa(500000, 10, 10);
+        Casa casa2 = new Casa(500000, 10, 10,40,50);
         financiamentos.add(casa2);
-        Apartamento ap1 = new Apartamento(500000, 10, 10);
+        Apartamento ap1 = new Apartamento(500000, 10, 10,2,20);
         financiamentos.add(ap1);
-        Apartamento ap2 = new Apartamento(500000, 10, 10);
+        Apartamento ap2 = new Apartamento(500000, 10, 10,2,20);
         financiamentos.add(ap2);
-        Terreno terreno1 = new Terreno(500000, 10, 10);
+        Terreno terreno1 = new Terreno(500000, 10, 10,"Residencial");
         financiamentos.add(terreno1);
 
 

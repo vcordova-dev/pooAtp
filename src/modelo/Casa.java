@@ -1,10 +1,16 @@
 package modelo;
 
 public class Casa extends Financiamento{
-    // Método construtor da superclase
-    public Casa(double valorImovel, int prazoFinanciamento, double taxaJurosAnual) {
+    ///Atributos específicos da subclasse
+    private double tamAreaConstruida;
+    private double tamTerreno;
+
+    public Casa(double valorImovel, int prazoFinanciamento, double taxaJurosAnual, double tamAreaConstruida, double tamTerreno) {
         super(valorImovel, prazoFinanciamento, taxaJurosAnual);
+        this.tamAreaConstruida = tamAreaConstruida;
+        this.tamTerreno = tamTerreno;
     }
+
     //Sobscrita do método
     @Override
     public double calcularPagamentoMensal() {
