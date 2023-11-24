@@ -13,22 +13,20 @@ public class Main {
     public static void main(String[] args) {
         // Array list para armazenamento dos objetos tipo Financiamento.
         ArrayList<Financiamento> financiamentos = new ArrayList<>();
-
         // Variável que armazena o retorno do método para obter o tipo do Financiamento.
         int escolhaTipoImovel = InterfaceUsuario.escolherTipoImovel();
-
-        // Chama os métodos de entrada de dados específicos para o tipo de imóvel escolhido
+        // Atributos comuns ente as subclasses
         double valorImovel;
         int prazoFinanciamento;
         double taxaJurosanual;
-        // Atributos específicos de cada subclasse Financiamento
+        // Atributos específicos de cada subclasse
         int numVagas;
         int numAndar;
         double tamAreaConstruida;
         double tamTerreno;
         String tipoZona;
 
-        //Validação try catch da entrada de dados
+        //Validação try catch da entrada de dados dos atributos comuns
         try {
             valorImovel = InterfaceUsuario.entradaValorImovel();
             prazoFinanciamento = InterfaceUsuario.entradaPrazoFinanciamento();
@@ -38,7 +36,7 @@ public class Main {
             return; // Termina o programa em caso de erro
         }
 
-        // Instancia o tipo de imóvel escolhido
+        // Declara uma variável do tipo Financiamento
         Financiamento financiamento;
 
         try {
@@ -65,7 +63,6 @@ public class Main {
             return; // Termina o programa em caso de erro
         }
 
-
         // Adiciona o financiamento à lista
         financiamentos.add(financiamento);
 
@@ -78,7 +75,6 @@ public class Main {
         financiamentos.add(ap2);
         Terreno terreno1 = new Terreno(500000, 10, 10,"Residencial");
         financiamentos.add(terreno1);
-
 
 
         // Calcule o valor total de todos os imóveis e financiamentos.

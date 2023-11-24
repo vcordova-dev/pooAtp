@@ -12,7 +12,7 @@ public abstract class Financiamento {
         this.prazoFinanciamento = prazoFinanciamento;
         this.taxaJurosAnual = taxaJurosAnual;
     }
-    //Interface da classe com métodos públicos
+    //Método abstrato
     public abstract double calcularPagamentoMensal();
     public double calcularTotalPagamento(){
         double mesesPagamento = prazoFinanciamento * 12;
