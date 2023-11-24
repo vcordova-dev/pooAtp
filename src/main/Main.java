@@ -18,11 +18,11 @@ public class Main {
         int escolhaTipoImovel = InterfaceUsuario.escolherTipoImovel();
 
         // Chama os métodos de entrada de dados específicos para o tipo de imóvel escolhido
-        double valorImovel = 0;
-        int prazoFinanciamento = 0;
-        double taxaJurosanual = 0;
+        double valorImovel;
+        int prazoFinanciamento;
+        double taxaJurosanual;
         // Atributos específicos de cada subclasse Financiamento
-        int numVagas = 0;
+        int numVagas;
         int numAndar;
         double tamAreaConstruida;
         double tamTerreno;
@@ -97,13 +97,6 @@ public class Main {
         for (int i = 0; i < financiamentos.size(); i++) {
             System.out.println("Financiamento " + (i + 1) + " - Valor do Imóvel: R$" + String.format("%.2f", financiamentos.get(i).getValorImovel()) +
                     "\nParcelas Mensais de: R$:" + String.format("%.2f", financiamentos.get(i).calcularPagamentoMensal()) + "\nValor do Financiamento: R$" + String.format("%.2f", financiamentos.get(i).calcularTotalPagamento()));
-        }
-
-        for (int i = 0; i < financiamentos.size(); i++) {
-            System.out.println("Financiamento " + (i + 1) + " - Tipo: " + InterfaceUsuario.getTipoFinanciamento(financiamentos.get(i)) +
-                    "\nValor do Imóvel: R$" + String.format("%.2f", financiamentos.get(i).getValorImovel()) +
-                    "\nParcelas Mensais de: R$:" + String.format("%.2f", financiamentos.get(i).calcularPagamentoMensal()) +
-                    "\nValor do Financiamento: R$" + String.format("%.2f", financiamentos.get(i).calcularTotalPagamento()));
         }
 
         //Soma de todos os imóveis e financiamentos.
