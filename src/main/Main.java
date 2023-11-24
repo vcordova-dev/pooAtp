@@ -21,6 +21,13 @@ public class Main {
         double valorImovel = 0;
         int prazoFinanciamento = 0;
         double taxaJurosanual = 0;
+        // Atributos específicos de cada subclasse Financiamento
+        int numVagas = 0;
+        int numAndar;
+        double tamAreaConstruida;
+        double tamTerreno;
+        String tipoZona;
+
         //Validação try catch da entrada de dados
         try {
             valorImovel = InterfaceUsuario.entradaValorImovel();
@@ -37,13 +44,18 @@ public class Main {
         try {
             switch (escolhaTipoImovel) {
                 case 1:
-                    financiamento = new Casa(valorImovel, prazoFinanciamento, taxaJurosanual,30,30);
+                    tamAreaConstruida = InterfaceUsuario.entradaAreaConstruida();
+                    tamTerreno = InterfaceUsuario.entradaTamanhoTerreno();
+                    financiamento = new Casa(valorImovel, prazoFinanciamento, taxaJurosanual,tamAreaConstruida,tamTerreno);
                     break;
                 case 2:
-                    financiamento = new Apartamento(valorImovel, prazoFinanciamento, taxaJurosanual,2,20);
+                    numVagas = InterfaceUsuario.entradaNumeroVagas();
+                    numAndar = InterfaceUsuario.entradaNumeroAndar();
+                    financiamento = new Apartamento(valorImovel, prazoFinanciamento, taxaJurosanual,numVagas,numAndar);
                     break;
                 case 3:
-                    financiamento = new Terreno(valorImovel, prazoFinanciamento, taxaJurosanual,"Comercial");
+                    tipoZona = InterfaceUsuario.entradaTipoZonaConstruida();
+                    financiamento = new Terreno(valorImovel, prazoFinanciamento, taxaJurosanual,tipoZona);
                     break;
                 default:
                     throw new IllegalArgumentException("Opção de imóvel inválida");

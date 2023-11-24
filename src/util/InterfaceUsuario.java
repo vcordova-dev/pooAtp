@@ -11,6 +11,128 @@ import java.util.Scanner;
 public class InterfaceUsuario {
     //Interface da classe com métodos públicos
 
+    public static double entradaTamanhoTerreno() {
+        Scanner scanner = new Scanner(System.in);
+        double tamanhoTerreno = 0;
+
+        while (true) {
+            try {
+                System.out.print("Digite o tamanho do terreno: ");
+                tamanhoTerreno = scanner.nextDouble();
+
+                if (tamanhoTerreno <= 0) {
+                    throw new IllegalArgumentException("O tamanho do terreno deve ser maior que zero.");
+                }
+
+                break; // Sair do loop se a entrada for válida
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Digite um número válido.");
+                scanner.nextLine();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        return tamanhoTerreno;
+    }
+
+    public static int entradaNumeroVagas() {
+        Scanner scanner = new Scanner(System.in);
+        int numeroVagas = 0;
+
+        while (true) {
+            try {
+                System.out.print("Digite o número de vagas: ");
+                numeroVagas = scanner.nextInt();
+
+                if (numeroVagas <= 0) {
+                    throw new IllegalArgumentException("O número de vagas deve ser maior que zero.");
+                }
+
+                break; // Sair do loop se a entrada for válida
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Digite um número válido.");
+                scanner.nextLine();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        return numeroVagas;
+    }
+
+    public static int entradaNumeroAndar() {
+        Scanner scanner = new Scanner(System.in);
+        int numeroAndar = 0;
+
+        while (true) {
+            try {
+                System.out.print("Digite o número de andares do apartamento: ");
+                numeroAndar = scanner.nextInt();
+
+                if (numeroAndar <= 0) {
+                    throw new IllegalArgumentException("O número de andares deve ser maior que zero.");
+                }
+
+                break; // Sair do loop se a entrada for válida
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Digite um número válido.");
+                scanner.nextLine();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        return numeroAndar;
+    }
+
+    public static double entradaAreaConstruida() {
+        Scanner scanner = new Scanner(System.in);
+        double tamAreaConstruida = 0;
+
+        while (true) {
+            try {
+                System.out.print("Digite a área construída: ");
+                tamAreaConstruida = scanner.nextDouble();
+
+                if (tamAreaConstruida <= 0) {
+                    throw new IllegalArgumentException("A área construída deve ser maior que zero.");
+                }
+
+                break; // Sair do loop se a entrada for válida
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Digite um número válido.");
+                scanner.nextLine();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        return tamAreaConstruida;
+    }
+
+    public static String entradaTipoZonaConstruida() {
+        Scanner scanner = new Scanner(System.in);
+        String tipoZonaConstruida = "";
+
+        while (true) {
+            try {
+                System.out.print("Digite o tipo de zona construída (por exemplo, 'Residencial', 'Comercial'): ");
+                tipoZonaConstruida = scanner.next();
+
+                if (tipoZonaConstruida.trim().isEmpty()) {
+                    throw new IllegalArgumentException("O tipo de zona construída não pode estar vazio.");
+                }
+
+                break; // Sair do loop se a entrada for válida
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        return tipoZonaConstruida;
+    }
+
     public static double entradaValorImovel() {
         Scanner scanner = new Scanner(System.in);
         double valorImovel = 0;
@@ -27,7 +149,7 @@ public class InterfaceUsuario {
                 break; // Sair do loop se a entrada for válida
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Digite um número válido.");
-                scanner.nextLine(); // Limpar o buffer do scanner
+                scanner.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -52,7 +174,7 @@ public class InterfaceUsuario {
                 break; // Sair do loop se a entrada for válida
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Digite um número válido.");
-                scanner.nextLine(); // Limpar o buffer do scanner
+                scanner.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -77,7 +199,7 @@ public class InterfaceUsuario {
                 break; // Sair do loop se a entrada for válida
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Digite um número válido.");
-                scanner.nextLine(); // Limpar o buffer do scanner
+                scanner.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -106,7 +228,7 @@ public class InterfaceUsuario {
                 break; // Sair do loop se a entrada for válida
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Digite um número válido.");
-                scanner.nextLine(); // Limpar o buffer do scanner
+                scanner.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }

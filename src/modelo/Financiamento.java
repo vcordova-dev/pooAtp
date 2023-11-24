@@ -1,10 +1,11 @@
 package modelo;
 
-public class Financiamento {
+public abstract class Financiamento {
     //Atributos da classe
     private double valorImovel;
     private int prazoFinanciamento;
     private double taxaJurosAnual;
+
     //Método construto da classe
     public Financiamento(double valorImovel, int prazoFinanciamento, double taxaJurosAnual){
         this.valorImovel = valorImovel;
@@ -12,10 +13,7 @@ public class Financiamento {
         this.taxaJurosAnual = taxaJurosAnual;
     }
     //Interface da classe com métodos públicos
-    public double calcularPagamentoMensal() {
-        double pagamentoMensal = (valorImovel / (prazoFinanciamento * 12)) * (1 + ((taxaJurosAnual / 100) / 12));
-        return pagamentoMensal;
-    }
+    public abstract double calcularPagamentoMensal();
     public double calcularTotalPagamento(){
         double mesesPagamento = prazoFinanciamento * 12;
         double totalPagamento = calcularPagamentoMensal() * mesesPagamento;
@@ -23,13 +21,13 @@ public class Financiamento {
     }
     //Getters
     public double getValorImovel(){
-        return valorImovel;
+        return this.valorImovel;
     }
     public int getPrazoFinanciamento(){
-        return prazoFinanciamento;
+        return this.prazoFinanciamento;
     }
     public double getTaxaJurosAnual(){
-        return taxaJurosAnual;
+        return this.taxaJurosAnual;
     }
 
 }
