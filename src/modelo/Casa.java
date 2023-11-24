@@ -17,4 +17,12 @@ public class Casa extends Financiamento{
         double pagamentoMensal = (getValorImovel() / (getPrazoFinanciamento() * 12)) * (1 + ((getTaxaJurosAnual() / 100) / 12));
         return pagamentoMensal + 80;
     }
+
+    public double getTamAreaConstruida() {
+        return tamAreaConstruida;
+    }
+
+    public double getTamTerreno() {
+        return tamTerreno;
+    }
 }

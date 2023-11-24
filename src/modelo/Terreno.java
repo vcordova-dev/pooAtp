@@ -17,4 +17,8 @@ public class Terreno extends Financiamento{
 
         return pagamentoMensal * 1.02;
     }
+
+    public String getTipoZona() {
+        return tipoZona;
+    }
 }

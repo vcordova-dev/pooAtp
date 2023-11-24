@@ -91,8 +91,25 @@ public class Main {
         // Percorre a lista de financiamentos e imprime o atributo de cada objeto dentro da lista
         System.out.println("Resumo dos Financiamentos:");
         for (int i = 0; i < financiamentos.size(); i++) {
-            System.out.println("Financiamento " + (i + 1) + " - Valor do Imóvel: R$" + String.format("%.2f", financiamentos.get(i).getValorImovel()) +
-                    "\nParcelas Mensais de: R$:" + String.format("%.2f", financiamentos.get(i).calcularPagamentoMensal()) + "\nValor do Financiamento: R$" + String.format("%.2f", financiamentos.get(i).calcularTotalPagamento()));
+            Financiamento fin = financiamentos.get(i);
+            System.out.println("Financiamento " + (i + 1) + " - Tipo: " + InterfaceUsuario.getTipoFinanciamento(financiamentos.get(i)) +
+                    "\nValor do Imóvel: R$" + String.format("%.2f", financiamentos.get(i).getValorImovel()) +
+                    "\nParcelas Mensais de: R$:" + String.format("%.2f", financiamentos.get(i).calcularPagamentoMensal()) +
+                    "\nValor do Financiamento: R$" + String.format("%.2f", financiamentos.get(i).calcularTotalPagamento()));
+
+            if (fin instanceof Casa) {
+                Casa casa = (Casa) fin;
+                System.out.println("Área Construída: " + casa.getTamAreaConstruida() +
+                        "\nTamanho do Terreno: " + casa.getTamTerreno());
+            } else if (fin instanceof Apartamento) {
+                Apartamento ap = (Apartamento) fin;
+                System.out.println("Número de Vagas: " + ap.getNumVagas() +
+                        "\nNúmero de Andares: " + ap.getNumAndar());
+            } else if (fin instanceof Terreno) {
+                Terreno terreno = (Terreno) fin;
+                System.out.println("Tipo de Zona: " + terreno.getTipoZona());
+            }
+
         }
 
         //Soma de todos os imóveis e financiamentos.

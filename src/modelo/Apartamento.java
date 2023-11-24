@@ -20,4 +20,12 @@ public class Apartamento extends Financiamento{
         return pagamentoMensal;
 
     }
+
+    public int getNumVagas() {
+        return numVagas;
+    }
+
+    public int getNumAndar() {
+        return numAndar;
+    }
 }
