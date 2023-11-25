@@ -5,6 +5,10 @@ import modelo.Casa;
 import modelo.Financiamento;
 import modelo.Terreno;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -248,4 +252,5 @@ public class InterfaceUsuario {
             return "Desconhecido";
         }
     }
+
 }

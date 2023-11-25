@@ -7,6 +7,8 @@ import modelo.Casa;
 import modelo.Financiamento;
 import modelo.Terreno;
 import util.InterfaceUsuario;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class Main {
@@ -112,10 +114,61 @@ public class Main {
 
         }
 
+        StringBuilder resumo = new StringBuilder("Resumo dos Financiamentos:\n");
+
+        for (int i = 0; i < financiamentos.size(); i++) {
+            Financiamento fin = financiamentos.get(i);
+
+            resumo.append("Financiamento ").append(i + 1).append(" - Tipo: ").append(InterfaceUsuario.getTipoFinanciamento(fin))
+                    .append("\nValor do Imóvel: R$").append(String.format("%.2f", fin.getValorImovel()))
+                    .append("\nParcelas Mensais de: R$:").append(String.format("%.2f", fin.calcularPagamentoMensal()))
+                    .append("\nValor do Financiamento: R$").append(String.format("%.2f", fin.calcularTotalPagamento()));
+
+            if (fin instanceof Casa) {
+                Casa casa = (Casa) fin;
+                resumo.append("\nÁrea Construída: ").append(casa.getTamAreaConstruida())
+                        .append("\nTamanho do Terreno: ").append(casa.getTamTerreno());
+            } else if (fin instanceof Apartamento) {
+                Apartamento ap = (Apartamento) fin;
+                resumo.append("\nNúmero de Vagas: ").append(ap.getNumVagas())
+                        .append("\nNúmero de Andares: ").append(ap.getNumAndar());
+            } else if (fin instanceof Terreno) {
+                Terreno terreno = (Terreno) fin;
+                resumo.append("\nTipo de Zona: ").append(terreno.getTipoZona());
+            }
+
+            resumo.append("\n\n");
+        }
         //Soma de todos os imóveis e financiamentos.
         System.out.println("Total de todos os imóveis: R$" + String.format("%.2f", totalImoveis));
         System.out.println("Total de todos os financiamentos: R$" + String.format("%.2f", totalFinanciamentos));
 
+        gravarResumoEmArquivo(resumo.toString(), "resumo.txt");
+        LerCaracteres();
 
+    }
+
+    private static void gravarResumoEmArquivo(String resumo, String nomeArquivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
+            writer.write(resumo);
+            System.out.println("Resumo gravado com sucesso em " + nomeArquivo);
+        } catch (IOException e) {
+            System.err.println("Erro ao gravar o resumo: " + e.getMessage());
+        }
+    }
+
+    public static void LerCaracteres() {
+        FileReader in = null;
+        try {
+            in = new FileReader("resumo.txt");
+            int c;
+            while ((c = in.read()) != -1) // escreve caractere a caractere; -1 = EOF
+                System.out.print((char)c);// imprime como caractere
+            in.close(); // fecha arquivo de entrada
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

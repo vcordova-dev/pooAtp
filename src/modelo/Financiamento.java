@@ -14,6 +14,7 @@ public abstract class Financiamento {
     }
     //Método abstrato
     public abstract double calcularPagamentoMensal();
+
     public double calcularTotalPagamento(){
         double mesesPagamento = prazoFinanciamento * 12;
         return calcularPagamentoMensal() * mesesPagamento;
