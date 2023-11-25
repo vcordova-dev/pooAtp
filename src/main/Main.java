@@ -145,9 +145,11 @@ public class Main {
 
         gravarResumoEmArquivo(resumo.toString(), "resumo.txt");
         LerCaracteres();
+        salvarFinanciamentos(financiamentos,"financiamentos.dat");
+        ArrayList<Financiamento> financiamentosLidos = lerFinanciamentos("financiamentos.dat");
 
     }
-
+    //Método para gravar arquivo .txt
     private static void gravarResumoEmArquivo(String resumo, String nomeArquivo) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
             writer.write(resumo);
@@ -156,7 +158,7 @@ public class Main {
             System.err.println("Erro ao gravar o resumo: " + e.getMessage());
         }
     }
-
+    //Lê o arquivo .txt
     public static void LerCaracteres() {
         FileReader in = null;
         try {
@@ -171,4 +173,24 @@ public class Main {
             e.printStackTrace();
         }
     }
+    //Método Grava os objetos da lista no arquivo.dat
+    private static void salvarFinanciamentos(ArrayList<Financiamento> financiamentos, String nomeArquivo) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+            oos.writeObject(financiamentos);
+            System.out.println("Financiamentos salvos com sucesso em " + nomeArquivo);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar financiamentos: " + e.getMessage());
+        }
+    }
+    //Lê os os objetos .dat
+    private static ArrayList<Financiamento> lerFinanciamentos(String nomeArquivo) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+            return (ArrayList<Financiamento>) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Erro ao ler financiamentos: " + e.getMessage());
+            return new ArrayList<>(); // Retorna uma lista vazia em caso de erro
+        }
+    }
+
+
 }

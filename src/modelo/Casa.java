@@ -1,6 +1,9 @@
 package modelo;
 
-public class Casa extends Financiamento{
+import java.io.Serializable;
+
+public class Casa extends Financiamento implements Serializable {
+    private static final long serialVersionUID = 1L;
     ///Atributos específicos da subclasse
     private double tamAreaConstruida;
     private double tamTerreno;
