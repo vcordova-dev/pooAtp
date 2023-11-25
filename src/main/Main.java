@@ -146,7 +146,8 @@ public class Main {
         gravarResumoEmArquivo(resumo.toString(), "resumo.txt");
         LerCaracteres();
         salvarFinanciamentos(financiamentos,"financiamentos.dat");
-        ArrayList<Financiamento> financiamentosLidos = lerFinanciamentos("financiamentos.dat");
+        // Não vou implementar a leitura do objeto pois não consegui resolver o erro "Erro ao ler financiamentos: modelo.Apartamento; no valid constructor"
+        // ArrayList<Financiamento> financiamentosLidos = lerFinanciamentos("financiamentos.dat");
 
     }
     //Método para gravar arquivo .txt
